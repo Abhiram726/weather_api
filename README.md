@@ -103,7 +103,7 @@ src
 ## Run
 
 ```bash
-git clone https://github.com/<your-username>/weather-api.git
+git clone https://github.com/Abhiram726/weather_api.git
 
 cd weather-api
 
