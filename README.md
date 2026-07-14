@@ -51,7 +51,7 @@ Logging       : SLF4J
 Testing       : JUnit 5 + Mockito
 API           : Visual Crossing Weather API
 ```
-
+inspo      : https://roadmap.sh/projects/weather-api-wrapper-service
 ---
 
 ## Example Request
