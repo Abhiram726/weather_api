@@ -1,179 +1,139 @@
-````markdown
-# 🌦️ Weather API
+<div align="center">
 
-A clean Spring Boot REST API that fetches real-time weather information using the Visual Crossing Weather API. Built to practice backend fundamentals including REST APIs, dependency injection, WebClient, exception handling, logging, and unit testing.
+# 🌤 Weather API
 
----
+*Real-time weather. Clean architecture. Zero fluff.*
 
-## ✨ Features
-
-- 🌍 Get current weather by city
-- ⚡ Fast REST API using Spring Boot
-- 🔗 External API integration with WebClient
-- 📝 Structured logging
-- 🚨 Global exception handling
-- 🧪 Unit testing with JUnit & Mockito
-- 📦 Clean layered architecture
-- 🔐 API key stored securely using properties
+A Spring Boot REST API that fetches live weather data from the **Visual Crossing Weather API** using **WebClient**, following a layered architecture and production-inspired backend practices.
 
 ---
 
-## 🛠️ Tech Stack
+![Java](https://img.shields.io/badge/Java-25-E76F00?style=flat-square&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.x-6DB33F?style=flat-square&logo=springboot&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-3.9-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Pending-success?style=flat-square)
 
-| Technology | Purpose |
-|------------|---------|
-| Java 25 | Programming Language |
-| Spring Boot | Backend Framework |
-| Spring MVC | REST API |
-| WebClient | HTTP Client |
-| Maven | Dependency Management |
-| Lombok | Boilerplate Reduction |
-| JUnit 5 | Unit Testing |
-| Mockito | Mocking |
-| SLF4J + Logback | Logging |
-| Visual Crossing API | Weather Data |
+</div>
 
 ---
 
-## 📂 Project Structure
+## Architecture
 
-```
-src
-├── main
-│   ├── java
-│   │   └── com.abhiram.weather_api
-│   │       ├── config
-│   │       ├── controller
-│   │       ├── dto
-│   │       ├── exception
-│   │       ├── service
-│   │       └── WeatherApiApplication.java
-│   │
-│   └── resources
-│       └── application.properties
-│
-└── test
+```text
+                Client
+                   │
+                   ▼
+        WeatherController
+                   │
+                   ▼
+          WeatherService
+                   │
+        ┌──────────┴──────────┐
+        │                     │
+        ▼                     ▼
+    WebClient            Exception Handler
+        │
+        ▼
+ Visual Crossing API
 ```
 
 ---
 
-## 🚀 API Endpoint
+## Tech Stack
 
-### Get Weather
-
-```http
-GET /weather/{city}
+```yaml
+Language      : Java 25
+Framework     : Spring Boot
+Architecture  : Layered Architecture
+Build Tool    : Maven
+HTTP Client   : WebClient
+Logging       : SLF4J
+Testing       : JUnit 5 + Mockito
+API           : Visual Crossing Weather API
 ```
 
-Example
+---
+
+## Example Request
 
 ```http
 GET /weather/Hyderabad
 ```
 
-### Response
+Response
 
 ```json
 {
   "city": "Hyderabad",
-  "temperature": 29.8,
-  "humidity": 41.4,
-  "conditions": "Partially cloudy"
+  "temperature": 30.4,
+  "humidity": 41.8,
+  "conditions": "Partially Cloudy"
 }
 ```
 
 ---
 
-## ⚙️ Setup
+## Features
 
-### Clone Repository
+- Live weather retrieval
+- External REST API integration
+- Layered architecture
+- DTO-based response mapping
+- Centralized exception handling
+- Structured logging
+- Unit testing
+- Secure API key configuration
 
-```bash
-git clone https://github.com/your-username/weather_api.git
+---
+
+## Project Structure
+
+```text
+src
+├── config
+├── controller
+├── dto
+├── exception
+├── service
+└── WeatherApiApplication
 ```
 
-### Navigate
+---
+
+## Run
 
 ```bash
-cd weather_api
-```
+git clone https://github.com/<your-username>/weather-api.git
 
-### Configure API Key
+cd weather-api
 
-`application.properties`
-
-```properties
-weather.api.key=YOUR_VISUAL_CROSSING_API_KEY
-```
-
-### Run
-
-```bash
 mvn spring-boot:run
 ```
 
 ---
 
-## 🧪 Testing
+## Why I Built This
 
-Run all tests
+This project was built to strengthen backend development fundamentals by implementing a real-world REST API from scratch. It focuses on writing clean, maintainable Spring Boot code rather than simply consuming an external API.
 
-```bash
-mvn test
-```
+Concepts explored:
 
----
-
-## 📸 Sample Output
-
-```json
-{
-  "city": "Hyderabad",
-  "temperature": 30.2,
-  "humidity": 62.1,
-  "conditions": "Clear"
-}
-```
-
----
-
-## 📚 Concepts Practiced
-
-- REST API Development
 - Dependency Injection
-- Spring Bean Configuration
+- Bean Configuration
+- REST API Design
 - WebClient
 - DTO Mapping
-- JSON Serialization
-- Exception Handling
 - Logging
+- Exception Handling
 - Unit Testing
-- Maven Project Structure
+- Maven
 
 ---
 
-## 🔮 Future Improvements
+<div align="center">
 
-- Weather Forecast (7-Day)
-- Current Air Quality
-- Redis Caching
-- Docker Support
-- Swagger / OpenAPI Documentation
-- GitHub Actions CI/CD
-- API Rate Limiting
-- Response Caching
-- Database Integration
-- Reactive WebFlux Version
+### Backend is more than making APIs work.
 
----
+### It's about making them maintainable.
 
-## 👨‍💻 Author
-
-**Abhiram**
-
-Electrical & Electronics Engineering Student | Aspiring Backend Developer
-
----
-
-## ⭐ If you found this project useful, consider giving it a star.
-````
+</div>
