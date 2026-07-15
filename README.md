@@ -1,66 +1,60 @@
-<div align="center">
-
-# 🌤 Weather API
-
-*Real-time weather. Clean architecture. Zero fluff.*
-
-A Spring Boot REST API that fetches live weather data from the **Visual Crossing Weather API** using **WebClient**, following a layered architecture and production-inspired backend practices.
-
 ---
 
-![Java](https://img.shields.io/badge/Java-25-E76F00?style=flat-square&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.x-6DB33F?style=flat-square&logo=springboot&logoColor=white)
-![Maven](https://img.shields.io/badge/Maven-3.9-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Pending-success?style=flat-square)
+## 🚀 Getting Started
 
-</div>
+### 1. Clone the Repository
 
----
+```bash
+git clone https://github.com/Abhiram726/weather_api.git
+cd weather_api
+```
 
-## Architecture
+### 2. Configure the API Key
+
+Create or update `src/main/resources/application.properties`:
+
+```properties
+weather.api.key=YOUR_VISUAL_CROSSING_API_KEY
+```
+
+Get your free API key from:
+https://www.visualcrossing.com/weather-api
+
+### 3. Build the Project
+
+```bash
+mvn clean install
+```
+
+### 4. Run the Application
+
+Using Maven:
+
+```bash
+mvn spring-boot:run
+```
+
+Or run the generated JAR:
+
+```bash
+java -jar target/weather_api-0.0.1-SNAPSHOT.jar
+```
+
+### 5. Open the Application
+
+Frontend
 
 ```text
-                Client
-                   │
-                   ▼
-        WeatherController
-                   │
-                   ▼
-          WeatherService
-                   │
-        ┌──────────┴──────────┐
-        │                     │
-        ▼                     ▼
-    WebClient            Exception Handler
-        │
-        ▼
- Visual Crossing API
+http://localhost:8080/
 ```
 
----
-
-## Tech Stack
-
-```yaml
-Language      : Java 25
-Framework     : Spring Boot
-Architecture  : Layered Architecture
-Build Tool    : Maven
-HTTP Client   : WebClient
-Logging       : SLF4J
-Testing       : JUnit 5 + Mockito
-API           : Visual Crossing Weather API
-```
-
----
-
-## Example Request
+REST API
 
 ```http
-GET /weather/Hyderabad
+GET http://localhost:8080/weather/Hyderabad
 ```
 
-Response
+Example Response
 
 ```json
 {
@@ -73,67 +67,16 @@ Response
 
 ---
 
-## Features
+## 📌 API Endpoint
 
-- Live weather retrieval
-- External REST API integration
-- Layered architecture
-- DTO-based response mapping
-- Centralized exception handling
-- Structured logging
-- Unit testing
-- Secure API key configuration
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/weather/{city}` | Returns the current weather details for the specified city |
 
----
+Example
 
-## Project Structure
-
-```text
-src
-├── config
-├── controller
-├── dto
-├── exception
-├── service
-└── WeatherApiApplication
+```http
+GET /weather/London
+GET /weather/Hyderabad
+GET /weather/New York
 ```
-
----
-
-## Run
-
-```bash
-git clone https://github.com/Abhiram726/weather_api.git
-
-cd weather-api
-
-mvn spring-boot:run
-```
-
----
-
-## Why I Built This
-
-This project was built to strengthen backend development fundamentals by implementing a real-world REST API from scratch. It focuses on writing clean, maintainable Spring Boot code rather than simply consuming an external API.
-
-Concepts explored:
-
-- Dependency Injection
-- Bean Configuration
-- REST API Design
-- WebClient
-- DTO Mapping
-- Logging
-- Exception Handling
-- Unit Testing
-- Maven
-
----
-
-<div align="center">
-
-### Backend is more than making APIs work.
-
-### It's about making them maintainable.
-
-</div>
