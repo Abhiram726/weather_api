@@ -2,138 +2,280 @@
 
 # 🌤 Weather API
 
-*Real-time weather. Clean architecture. Zero fluff.*
+### A Full-Stack Weather Application built with Spring Boot
 
-A Spring Boot REST API that fetches live weather data from the **Visual Crossing Weather API** using **WebClient**, following a layered architecture and production-inspired backend practices.
+Real-time weather information powered by the **Visual Crossing Weather API**, featuring a responsive frontend, clean layered architecture, exception handling, logging, unit testing, and live deployment.
 
----
+<br>
 
-![Java](https://img.shields.io/badge/Java-25-E76F00?style=flat-square&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.x-6DB33F?style=flat-square&logo=springboot&logoColor=white)
-![Maven](https://img.shields.io/badge/Maven-3.9-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Pending-success?style=flat-square)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://weather-api-auxp.onrender.com)
+[![Java](https://img.shields.io/badge/Java-21-E76F00?style=for-the-badge&logo=openjdk&logoColor=white)]
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.x-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)]
+[![Maven](https://img.shields.io/badge/Maven-3.9-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)]
+[![License](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)]
 
 </div>
 
 ---
 
-## Architecture
+# 🌐 Live Demo
 
-```text
-                Client
-                   │
-                   ▼
-        WeatherController
-                   │
-                   ▼
-          WeatherService
-                   │
-        ┌──────────┴──────────┐
-        │                     │
-        ▼                     ▼
-    WebClient            Exception Handler
-        │
-        ▼
- Visual Crossing API
-```
+### Application
 
----
+https://weather-api-auxp.onrender.com
 
-## Tech Stack
-
-```yaml
-Language      : Java 25
-Framework     : Spring Boot
-Architecture  : Layered Architecture
-Build Tool    : Maven
-HTTP Client   : WebClient
-Logging       : SLF4J
-Testing       : JUnit 5 + Mockito
-API           : Visual Crossing Weather API
-```
-
----
-
-## Example Request
+### API
 
 ```http
-GET /weather/Hyderabad
+GET https://weather-api-auxp.onrender.com/weather/Hyderabad
+```
+
+---
+
+# 📸 Preview
+
+> *Add screenshots or a GIF here after polishing the UI.*
+
+```
+Weather App
+
+Enter City
+─────────────────────
+
+[ Hyderabad       ]
+
+[ Get Weather ]
+
+Temperature : 31°C
+
+Humidity    : 42%
+
+Conditions  : Cloudy
+```
+
+---
+
+# ✨ Features
+
+- Live weather retrieval
+- Responsive frontend
+- Dark / Light mode
+- RESTful API
+- WebClient integration
+- DTO-based response mapping
+- Layered architecture
+- Global exception handling
+- Structured logging using SLF4J
+- Unit testing with JUnit & Mockito
+- Secure API key using environment variables
+- Dockerized deployment
+- Live cloud deployment on Render
+
+---
+
+# 🏗 Architecture
+
+```text
+                 Browser
+                     │
+                     ▼
+              HTML / CSS / JS
+                     │
+             GET /weather/{city}
+                     │
+                     ▼
+          WeatherController
+                     │
+                     ▼
+            WeatherService
+                     │
+                     ▼
+               Spring WebClient
+                     │
+                     ▼
+      Visual Crossing Weather API
+                     │
+                     ▼
+             WeatherResponse DTO
+                     │
+                     ▼
+             WeatherSummary DTO
+                     │
+                     ▼
+                 JSON Response
+```
+
+---
+
+# 🛠 Tech Stack
+
+| Category | Technology |
+|-----------|------------|
+| Language | Java 21 |
+| Framework | Spring Boot |
+| Frontend | HTML, CSS, JavaScript |
+| HTTP Client | WebClient |
+| Build Tool | Maven |
+| Testing | JUnit 5, Mockito |
+| Logging | SLF4J |
+| API | Visual Crossing Weather API |
+| Deployment | Docker + Render |
+| Version Control | Git & GitHub |
+
+---
+
+# 📁 Project Structure
+
+```text
+src
+├── config
+│   └── WebClientConfig
+│
+├── controller
+│   └── WeatherController
+│
+├── dto
+│   ├── Day
+│   ├── WeatherResponse
+│   └── WeatherSummary
+│
+├── exception
+│   ├── CityNotFoundException
+│   └── GlobalExceptionHandler
+│
+├── service
+│   └── WeatherService
+│
+└── WeatherApiApplication
+```
+
+---
+
+# 🚀 Running Locally
+
+### Clone
+
+```bash
+git clone https://github.com/Abhiram726/weather_api.git
+cd weather_api
+```
+
+---
+
+### Configure API Key
+
+Create or edit
+
+```text
+src/main/resources/application.properties
+```
+
+```properties
+weather.api.key=YOUR_VISUAL_CROSSING_API_KEY
+```
+
+---
+
+### Build
+
+```bash
+mvn clean install
+```
+
+---
+
+### Run
+
+```bash
+mvn spring-boot:run
+```
+
+or
+
+```bash
+java -jar target/weather_api-0.0.1-SNAPSHOT.jar
+```
+
+---
+
+### Open
+
+Frontend
+
+```text
+http://localhost:8080
+```
+
+API
+
+```http
+GET http://localhost:8080/weather/Hyderabad
+```
+
+---
+
+# 📡 API
+
+## Get Weather
+
+```http
+GET /weather/{city}
+```
+
+Example
+
+```http
+GET /weather/London
 ```
 
 Response
 
 ```json
 {
-  "city": "Hyderabad",
-  "temperature": 30.4,
-  "humidity": 41.8,
+  "city": "London",
+  "temperature": 22.7,
+  "humidity": 65,
   "conditions": "Partially Cloudy"
 }
 ```
 
 ---
 
-## Features
+# 📚 What I Learned
 
-- Live weather retrieval
-- External REST API integration
-- Layered architecture
-- DTO-based response mapping
-- Centralized exception handling
-- Structured logging
-- Unit testing
-- Secure API key configuration
-
----
-
-## Project Structure
-
-```text
-src
-├── config
-├── controller
-├── dto
-├── exception
-├── service
-└── WeatherApiApplication
-```
-
----
-
-## Run
-
-```bash
-git clone https://github.com/Abhiram726/weather_api.git
-
-cd weather-api
-
-mvn spring-boot:run
-```
-
----
-
-## Why I Built This
-
-This project was built to strengthen backend development fundamentals by implementing a real-world REST API from scratch. It focuses on writing clean, maintainable Spring Boot code rather than simply consuming an external API.
-
-Concepts explored:
-
+- Spring Boot Fundamentals
 - Dependency Injection
 - Bean Configuration
-- REST API Design
+- REST API Development
 - WebClient
 - DTO Mapping
-- Logging
 - Exception Handling
+- Logging
 - Unit Testing
-- Maven
+- Docker
+- Cloud Deployment
+- Git & GitHub Workflow
+
+---
+
+# 🚀 Future Improvements
+
+- 7-Day Forecast
+- Hourly Forecast
+- Weather Icons
+- Current Location Support
+- Search History
+- Favourite Cities
+- Air Quality Index
+- Interactive Weather Maps
+- Progressive Web App (PWA)
 
 ---
 
 <div align="center">
 
-### Backend is more than making APIs work.
+### ⭐ If you found this project interesting, consider giving it a star.
 
-### It's about making them maintainable.
+Made with Spring Boot ☕ and lots of curiosity.
 
 </div>
