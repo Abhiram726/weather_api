@@ -34,7 +34,8 @@ GET https://weather-api-auxp.onrender.com/weather/Hyderabad
 
 # 📸 Preview
 
-> *Add screenshots or a GIF here after polishing the UI.*
+<img width="563" height="663" alt="image" src="https://github.com/user-attachments/assets/294b96bd-37ad-493e-bdbe-b99cf71519fd" />
+
 
 ```
 Weather App
